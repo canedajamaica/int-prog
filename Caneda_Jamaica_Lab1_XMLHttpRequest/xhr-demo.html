@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest Lab</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            color: #2d3436;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
 
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-shadow: 1px 1px 2px #dfe6e9;
+        }
+
+        button {
+            background-color: #0984e3;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #74b9ff;
+            transform: scale(1.05);
+        }
+
+        #output {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #dcdde1;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        strong {
+            color: #0984e3;
+        }
+
+        .error {
+            color: #d63031;
+            font-weight: bold;
+        }
+
+        .loading {
+            color: #636e72;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h2>Exploring XMLHttpRequest</h2>
+    <button id="loadData">Load Post Data</button>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("loadData").addEventListener("click", function() {
+            const xhr = new XMLHttpRequest();
+            const output = document.getElementById("output");
+
+            output.innerHTML = '<p class="loading">Loading post data...</p>';
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        output.innerHTML = `
+                            <h3>Post Details</h3>
+                            <p><strong>Title:</strong> ${data.title}</p>
+                            <p><strong>Content:</strong> ${data.body}</p>
+                        `;
+                    } else {
+                        output.innerHTML = `<p class="error">Error: ${xhr.status} - ${xhr.statusText}</p>`;
+                    }
+                }
+            };
+
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
