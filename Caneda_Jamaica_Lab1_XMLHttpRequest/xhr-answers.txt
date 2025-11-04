@@ -1,1 +1,26 @@
+Task 3: Guide Questions and Answers
 
+1️. What is the difference between readyState and status in XMLHttpRequest?
+The readyState property indicates the progress or stage of the request.
+0 – UNSENT (Request not initialized)
+1 – OPENED (Server connection established)
+2 – HEADERS_RECEIVED (Request received)
+3 – LOADING (Processing request)
+4 – DONE (Request finished and response ready)
+
+The status property indicates the HTTP response code returned by the server, such as:
+200 – OK
+404 – Not Found
+500 – Server Error
+
+2. How can you make the request asynchronous?
+You can make a request asynchronous by setting the third parameter of the xhr.open() method to true, like this:
+-xhr.open("GET", "https://example.com/data", true);
+-This allows the web page to continue running other scripts without waiting for the response. If it’s set to false, the request becomes synchronous and will block other operations.
+
+3. Why is asynchronous communication recommended for web applications?
+Asynchronous communication is recommended because it allows the web page to remain responsive while data is being loaded. It improves user experience by:
+-users interact with the page even while waiting for data.
+-Updating only specific parts of the page instead of reloading everything.
+-Making applications faster and more efficient.
+-Providing a smoother and more dynamic browsing experience.
