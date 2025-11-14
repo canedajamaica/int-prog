@@ -14,7 +14,7 @@
   </student>
 </students>
 
-/* Add one more <student> element with your own name and course.
+<!-- Add one more <student> element with your own name and course. -->
 
 <?xml version="1.0" encoding="UTF-8"?>
 <students>
