@@ -1,1 +1,10 @@
+Questions and Answers for Reflection:
 
+1. What are the basic rules of XML you applied in this lab?
+- During this lab activity, I applied basic yet important rules that helped me understand how XML maintains structure and readability. I learned that the XML declaration must be placed at the very top of the file with no spaces or lines before it, and that every tag must be properly opened, closed, and nested. I also had to make sure the tags were written with the correct case since XML is case-sensitive. By carefully applying all these rules, I realized how strict XML is about proper structure, which is essential for ensuring that the document is well-formed and error-free.
+
+2. Why does XML need a single root element?
+- Through this activity, I understood the importance of having a single root element in every XML document. The root element acts as a container that holds all other elements together, making the entire file organized and easy for XML parsers to interpret. Without this root, the document would not follow the tree-like structure that XML relies on, and it would be considered invalid. This rule helped me appreciate how XML maintains order and ensures that all data is structured clearly within one unified element.
+
+3. How does XML ensure interoperability?
+- Working with XML also made me reflect on how it ensures interoperability across different systems. Because XML uses a standardized format and plain text, it can be easily shared and understood by various programs, platforms, and devices. Its self-describing tags make the data meaningful even without additional explanation, and its support for Unicode allows information to be represented in any language. These features allow XML to function as a flexible and universal method for exchanging data, making it valuable in both simple applications and large systems.
