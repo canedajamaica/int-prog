@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet Petals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="petals-container" id="petalsContainer"></div>
+
+  <header class="scroll-animate">
+    <div class="header-inner">
+      <img src="assets/logo.png" alt="Velvet Petals Flower Shop Logo" class="site-logo">
+      <h1>Velvet Petals</h1>
+      <p class="tagline">Where Every Bloom Radiates Grace and Elegance</p>
+    </div>
+  </header>
+
+  <div class="cart-toggle">
+    <button id="openCartBtn" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+  </div>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="closeCartBtn" aria-label="Close cart">✕</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-checkout">
+      <div class="cart-footer">
+        <p>Total: <strong id="cartTotal">₱0.00</strong></p>
+        <button id="checkoutBtn" class="primary">Checkout</button>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form hidden" novalidate>
+        <h4>Checkout Details</h4>
+
+        <label>
+          Full name
+          <input type="text" id="buyerName" required>
+          <small class="error" id="errName"></small>
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="buyerEmail" required>
+          <small class="error" id="errEmail"></small>
+        </label>
+
+        <label>
+          Phone
+          <input type="tel" id="buyerPhone">
+          <small class="error" id="errPhone"></small>
+        </label>
+
+        <div class="checkout-actions">
+          <button type="submit" id="confirmCheckout" class="primary">Confirm Order</button>
+          <button type="button" id="cancelCheckout" class="muted">Cancel</button>
+        </div>
+
+        <p id="checkoutStatus" class="muted small"></p>
+      </form>
+    </div>
+  </aside>
+
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="miniCart" class="mini-cart hidden" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- PRODUCTS -->
+    <section class="products scroll-animate">
+      <h2 class="cursive-heading">Our Signature Blooms</h2>
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="about-us scroll-animate">
+      <h2 class="cursive-heading">Our Story: Blooming with Passion</h2>
+      <div class="content-wrapper">
+        <p>
+          Welcome to <b>Velvet Petals</b>, where every bouquet is a masterpiece crafted with
+          <em>grace and devotion</em>. Founded on the belief that flowers are the perfect messengers of emotion, we
+          dedicate ourselves to sourcing the freshest, most beautiful blooms to celebrate life's most precious moments.
+        </p>
+        <p>
+          Our commitment goes beyond just beautiful arrangements; we prioritize quality, sustainability, and personal
+          touch. Whether it’s a grand wedding centerpiece or a simple, heartfelt gesture, we pour our passion into
+          creating an unforgettable experience for you and your loved ones.
+        </p>
+        <p class="tagline">
+          <em>Let us help you say it with flowers.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="faqs scroll-animate">
+      <h2 class="cursive-heading">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>What are your delivery options and areas?</summary>
+          <p>We offer standard and express delivery options within Metro Manila. For cut-off times and covered areas,
+            message us anytime.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I customize a bouquet or arrangement?</summary>
+          <p>Absolutely! Use our 'Get In Touch' form to tell us your preferred flowers, colors, and budget.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is your cancellation/refund policy?</summary>
+          <p>Cancellations 24 hours before delivery receive a full refund. Quality concerns reported within 6 hours
+            receive store credit.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How can I make my flowers last longer?</summary>
+          <p>Trim stems at an angle, replace water daily, and keep away from heat/sunlight. Flower food is included.</p>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact scroll-animate">
+      <h2>Get In Touch</h2>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+      <p id="status" class="small muted"></p>
+
+      <div class="contact-dashboard scroll-animate">
+        <h3>Submitted Messages</h3>
+        <ul id="contactListDash">
+          <li>No messages yet.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Velvet Petals. All rights reserved.</p>
+  </footer>
+
+  <!-- WELCOME MODAL -->
+  <div id="welcomeModal" class="modal">
+    <div class="modal-card welcome-card">
+      <img src="assets/logo.png" alt="A Warm Welcome" class="site-logo">
+      <h2 style="font-family:'Segoe Script', cursive;">A Warm Welcome</h2>
+      <p>
+        Step into the serene world of Velvet Petals, where elegance and grace bloom in every arrangement. We hope you
+        enjoy the view and find the perfect gift.
+      </p>
+      <button id="closeWelcomeModal" class="primary w-full">Start Shopping</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close" aria-label="Close product">✕</button>
+
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <div class="modal-info">
+          <h3 id="modalName"></h3>
+          <p id="modalCategory" class="muted"></p>
+          <p id="modalDesc"></p>
+          <p class="price" id="modalPrice"></p>
+
+          <div class="modal-actions">
+            <button id="modalAddToCart" class="primary">Add to Cart</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PETAL ANIMATION SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("petalsContainer");
+      const petalCount = 30;
+
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.style.left = `${Math.random() * 100}vw`;
+        petal.style.animationDuration = `${5 + Math.random() * 5}s`;
+        petal.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(petal);
+      }
+    });
+  </script>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
