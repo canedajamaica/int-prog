@@ -1,1 +1,75 @@
+[
+    {
+        "id":1,
+        "name":"Romantic Red Roses",
+        "description":"A classic bouquet of one dozen long-stemmed red roses, perfect for expressing love and passion.",
+        "price":500.00,
+        "category":"Romance",
+        "image":"assets/roses.jpg"
+    },
+    {
+        "id":2,
+        "name":"Sunny Day Sunflower Mix",
+        "description":"A cheerful arrangement featuring bright sunflowers, yellow daisies, and solidago in a rustic vase.",
+        "price":650.00,
+        "category":"Cheer",
+        "image":"assets/sunflower.jpg"
+    },
+    {
+        "id":3,
+        "name":"Elegant White Lilies",
+        "description":"Stunning white oriental lilies and lush green foliage, symbolizing purity and sympathy.",
+        "price":2299.00,
+        "category":"Sympathy",
+        "image":"assets/white_lilies.jpg"
+    },
+    {
+        "id":4,
+        "name":"Spring Tulip Basket",
+        "description":"A mix of vibrant colored tulips presented in a charming wicker basket, ideal for Easter or Mother's Day.",
+        "price":2999.99,
+        "category":"Seasonal",
+        "image":"assets/tulip_basket.jpg" 
+    },
+    {
+        "id":5,
+        "name":"Wild Dandelion Wishes",
+        "description":"A whimsical, hand-tied bunch of fresh dandelions and baby's breath, perfect for a casual, joyful gift.",
+        "price":2200.00,
+        "category":"Unique",
+        "image":"assets/dandelion_wishes.jpg" 
+    },
+    {
+        "id":6,
+        "name":"Tropical Paradise Arrangement",
+        "description":"Exotic birds of paradise, anthuriums, and green foliage for a vibrant, bold centerpiece.",
+        "price":1500.00,
+        "category":"Exotic",
+        "image":"assets/tropical_paradise.jpg"
+    },
+    {
+        "id":7,
+        "name":"Pastel Peony Dream",
+        "description":"A soft bouquet of pink, coral, and white peonies, accented with eucalyptus leaves.",
+        "price":2350.00,
+        "category":"Luxury",
+        "image":"assets/peony_dream.jpg" 
+    },
+    {
+        "id":8,
+        "name":"Lavender Field Bouquet",
+        "description":"Fragrant lavender sprigs mixed with white and purple hydrangeas, creating a soothing, aromatic gift.",
+        "price":1499.00,
+        "category":"Aromatic",
+        "image":"assets/lavender_field.jpg" 
+    },
+    {
+        "id":9,
+        "name":"Assorted Succulent Garden",
+        "description":"A low-maintenance gift featuring a variety of colorful succulents planted in a modern ceramic bowl.",
+        "price":1995.00,
+        "category":"Plants",
+        "image":"assets/succulent_garden.jpg" 
+    }
+]
 
